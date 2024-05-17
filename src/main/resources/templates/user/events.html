@@ -27,16 +27,16 @@
             <div class="card-body d-flex justify-content-between mx-3 my-3 align-middle" th:if="${t.getStatus().equals('ACTIVE')}">
               <div class="d-flex justify-content-evenly" style="width: 50%;">
                 <div class="text-center my-auto">
-                  <h3 class="card-title text-light" th:text="${t.venue}">Card title</h3>
-                  <h4 class="card-text text-light py-2" th:text="${t.startTime.toLocalDate()}">Card price</h4>
+                  <h3 class="card-title text-light" th:text="${'Location: ' + t.venue}">Card title</h3>
+                  <h4 class="card-text text-light py-2" th:text="${'Sponsor: ' + t.sponsor }">Card price</h4>
                 </div>
               </div>
 
               <div>
                 <h5 class="text-light" th:text="${'Price: ' + t.price + 'tg.'}"></h5>
-                <h5 class="text-light" th:text="${'Seats left: ' + t.countTicket}"></h5>
+                <h5 class="text-light" th:text="${'Places left: ' + t.countTicket}"></h5>
                 <h5 class="text-light" th:text="${'Type: ' + t.type}"></h5>
-                <h5 class="text-light" th:text="${'Airline: ' + t.sponsor}"></h5>
+                <h5 class="text-light" th:text="${'Date: ' + t.startTime.toLocalDate()}"></h5>
               </div>
 
               <form th:action="@{/events/order/{id}(id=${t.getId()})}" class="my-auto">

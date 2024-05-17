@@ -16,23 +16,23 @@
             <div class="row mt-5">
                 <div class="col-12 offset-0 d-flex justify-content-center flex-wrap">
                     <h1 class="text-center" style="width: 100%;">Orders</h1>
-                    <div class="card my-3 bg-dark" style="width: 95%;" th:each="p: ${orders}">
+                    <div class="card my-3 bg-dark border border-light" style="width: 80%;" th:each="p: ${orders}" th:if="${!orders.isEmpty()}">
+                        <div class="card-body d-flex justify-content-between mx-3 my-3 align-middle">
                             <div class="d-flex justify-content-evenly" style="width: 50%;">
                                 <div>
-                                    <h3 class="card-title text-white" th:text="${p.getEvent().getVenue()}" >Card title</h3>
-                                    <h4 class="card-text py-2 text-white" >Card price</h4>
+                                    <h3 class="card-title text-white" th:text="${'Location: ' + p.getEvent().getVenue()}" ></h3>
+                                    <h4 class="card-text py-2 text-white" th:text="${'Sponsor: ' + p.getEvent.getSponsor()}" ></h4>
                                 </div>
                             </div>
+
                             <div>
-                                <p class="card-title text-white" th:text="${'Bought by' + p.getPerson().getUsername()}"></p>
-                                <p class="card-text py-2 text-white" th:text="${p.getEvent().getType()}">Card price</p>
+                                <h5 class="text-light" th:text="${'Bought by: ' + p.getPerson().getUsername()}"></h5>
+                                <h5 class="text-light" th:text="${'Event type: ' + p.getEvent().getType()}"></h5>
+                                <h5 class="text-light" th:text="${'Price: ' + p.getTotalPrice() + 'tg.'}"></h5>
+                                <h5 class="text-light" th:text="${'Ticket Count: ' + p.getCount()}"></h5>
                             </div>
-                            <div class="text-white">
-                                <h3 th:text="${p.getTotalPrice() + 'tg.'}"></h3>
-                                <p th:text="${'count ' + p.getCount()}"></p>
-                            </div>
+
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

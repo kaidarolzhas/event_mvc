@@ -14,7 +14,7 @@
             <div class="col-10 offset-1 bg-dark px-5 pb-5 rounded-3 ">
                 <form class = "bg-dark" th:method="PATCH" th:action="@{/admin/update/{id}(id=${event.id})}" th:object="${event}">
                     <div class="d-flex justify-content-center flex-wrap bg-dark ">
-                        <h1 class="text-center mt-5 text-white" style="width: 100%">Edit Ticket</h1>
+                        <h1 class="text-center mt-5 text-white" style="width: 100%">Edit Event</h1>
 
                         <div class="my-3 px-3 bg-dark" style="width: 50%" >
                             <div class="form-group mt-3">
@@ -32,7 +32,7 @@
 
 
                             <div class="form-group mt-3">
-                                <label for="countTicket" class="text-white">>enter count of tickets: </label>
+                                <label for="countTicket" class="text-white">>Enter count of tickets: </label>
                                 <input class="form-control" type="number" th:field="*{countTicket}" id="countTicket">
                                 <div style="color:red" th:if="${#fields.hasErrors('countTicket')}" th:errors="*{countTicket}">count Error</div>
                             </div>
